@@ -1,4 +1,4 @@
-package com.akuistest;
+package com.andremene.akuistest;
 
 import android.os.Bundle;
 

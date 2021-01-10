@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.akuistest",
+    package = "com.andremene.akuistest",
 )
 
 android_resource(
     name = "res",
-    package = "com.akuistest",
+    package = "com.andremene.akuistest",
     res = "src/main/res",
 )
 
