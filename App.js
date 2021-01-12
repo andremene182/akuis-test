@@ -1,13 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useReducer} from 'react';
 import { Text, View } from 'react-native';
 
-import  Main  from './components/MainComponent';
+import Main from './components/MainComponent';
 
-export default class App extends React.Component {
-  render() {
+
+export default function App()  {
+
+
     return (
-      <Main />
+        <Main />
     );
-  }
 }

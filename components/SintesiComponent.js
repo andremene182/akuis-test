@@ -1,37 +1,60 @@
 import React, {Component} from 'react';
-import { ScrollView, View, Text } from 'react-native';
-import { Card, Button, Icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+//import { BleManager } from "react-native-ble-plx";
 
-import { BleManager } from "react-native-ble-plx";
 
 class Sintesi extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            isConnected: false,
-            bleManager: new BleManager()
         };
-        
+        //this.bleManager = new BleManager() 
     }
+
+    //Connect to Sintesi Device via BLE
+    connectToSintesi(){
+        //Here there'll be the bleManager logic to connect the app to the Sintesi Device via BLE
+
+        /*Simulation*/
+        var isConnected = true;
+        this.props.connectToSintesi(isConnected);
+
+        //Generate random data
+        this.props.strengthData(this.generateRandomData(60,3,50));
+        this.props.positionData(this.generateRandomData(60,0,2000));
+    }
+    
+    //Generate Random Data
+    generateRandomData(maxSeconds,minRange,maxRange){
+
+        var minVal=Math.floor(Math.random() * (maxRange - minRange) + minRange);
+        var maxVal=Math.floor(Math.random() * (maxRange - minVal) + minVal);
+
+        var i=0;
+        var rndData=[];
+        for(i;i<=maxSeconds;i++){
+            var y = Math.floor(Math.random() * (maxVal - minVal) + minVal);
+            rndData.push({ x: i, y: y });
+        }        
+        return(rndData);
+    }
+
 
     render(){
 
-        const connectToSintesi = () => {
-            //const bleManager = new BleManager();
-        }
-
+        //Render the Connect to Sintesi button
         const RenderConnectToSintesi = () => {
             return(
-                <Card>
-                    <Card.Image source={require('./images/sintesi.png')}>
-                    <Button 
-                        buttonStyle={{ backgroundColor:"black", borderRadius: 0, marginLeft: 0, marginRight: 0, marginTop: 50}}
-                        title=' Connect to Sintesi' onPress={connectToSintesi()} />
-                    </Card.Image>
+                <Button
+                onPress={() => this.connectToSintesi()}
+                title={this.props.isConnected ? 'Sintesi is Connected ' : 'Connect to Sintesi '} 
+                icon={this.props.isConnected ? <Icon name='bluetooth-connect' size={24} /> : <Icon name='bluetooth-off' size={24}  />}
+                iconRight={true}
+                titleStyle={{color: 'black'}}
+                buttonStyle={{marginRight: 15,backgroundColor:'white'}}/>
                 
-                </Card>
-
             );
         }
 

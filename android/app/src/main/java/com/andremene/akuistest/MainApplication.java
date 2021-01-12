@@ -9,6 +9,7 @@ import com.facebook.react.ReactApplication;
 import com.polidea.reactnativeble.BlePackage;
 import com.polidea.reactnativeble.BlePackage;
 import com.polidea.reactnativeble.BlePackage;
+import com.polidea.reactnativeble.BlePackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
