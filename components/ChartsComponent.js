@@ -56,13 +56,13 @@ class Charts extends Component{
 
             return (
                 <Chart
-                    style={{ height: Dimensions.get("window").height -250, width: '100%' }}
+                    style={{ height: Dimensions.get("window").height-200, width: '100%' }}
                     data={sintesiData}
                     padding={{ left: 40, bottom: 20, right: 20, top: 20 }}
                     xDomain={{ min: 0, max: 60 }}
                     yDomain={{ min: minValue, max: maxValue }}
                 >
-                <VerticalAxis tickCount={20} theme={{ labels: { formatter: (v) => v.toFixed(1) + ' ' + yLabel } }} />
+                <VerticalAxis tickCount={20} theme={{ labels: { formatter: (v) => v.toFixed(0) + ' ' + yLabel } }} />
                 <HorizontalAxis tickCount={5} theme={{ labels: { formatter: (v) => v.toFixed(1) + ' sec' } }}/>
                 <Area smoothing='bezier' theme={{ gradient: { from: { color: color }, to: { color: color, opacity: 0.4 } }}} />
                 <Line smoothing='bezier' theme={{ stroke: { color: color, width: 1 }, scatter: { default: { width: 1, height: 4, rx: 2 }} }} />
