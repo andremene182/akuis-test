@@ -13,13 +13,44 @@ class Sintesi extends Component{
         //this.bleManager = new BleManager() 
     }
 
+    /*
+    scanAndConnect(deviceName) {
+        this.bleManager.startDeviceScan(null, null, (error, device) => {
+            if (error) {
+                //error during the scan
+                return
+            }
+    
+            if (device.name === deviceName) {
+                
+                //Sintesi was found, so stopDeviceScan()
+                this.manager.stopDeviceScan();
+                
+                //Promise for device connection
+                device.connect()
+                    .then((device) => {
+                        //Discovering Services and Characteristics
+                        return device.discoverAllServicesAndCharacteristics()
+                    })
+                    .then((device) => {
+                        //work with services and charateristics
+                    })
+                    .catch((error) => {
+                        // Handle errors
+                    });
+            }
+        });
+    }
+    */
+
+
     //Connect to Sintesi Device via BLE
     connectToSintesi(){
         //Here there'll be the bleManager logic to connect the app to the Sintesi Device via BLE
-
+        //this.scanAndConnect('SINTESI');
+       
         /*Simulation*/
-        var isConnected = true;
-        this.props.connectToSintesi(isConnected);
+        this.props.connectToSintesi(!this.props.isConnected);
 
         //Generate random data
         this.props.strengthData(this.generateRandomData(60,3,50));
